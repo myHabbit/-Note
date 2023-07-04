@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>你好 {{username}}</h1>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        // 创建vue实例
+        const vm = new Vue({
+            el:'#app',  //el用于指定当前Vue实例为那个容器服务，值通常为css的id选择器字符串
+            data:{
+                username:'安鑫'
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .basic {
+            width: 500px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .happy {
+            width: 500px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        .sad {
+            width: 500px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .normal {
+            width: 500px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .atguigu1 {
+            font-size: 20px;
+        }
+
+        .atguigu2 {
+            border-radius: 20px;
+        }
+
+        .atguigu3 {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    
+        绑定样式：
+            1.class样式
+              写法:class="xxx"  xxx可以是字符串、对象、数组
+              字符串写法适用于：类名不确定 要动态获取
+              对象写法适用于：要绑定多个样式 个数不确定  名字也不确定
+              数组写法适用于 要绑定多个样式 个数确定 名字也确定 但不确定用不用
+            2.style样式
+              v-bind:style="{fontSize:xxx}" 其中xxx是动态值
+              v-bind:style="[a,b]"其中a,b是样式对象
+    
+    <div id="app">
+        <!-- 绑定class样式----字符串写法  适用于：样式的类名不确定 需要动态指定    -->
+        <div class="basic" v-bind:class="mood" @click="changeMood">{{name}}</div>
+        <br><br>
+
+        <!-- 绑定class样式----数组写法  适用于：要绑定的样式个数不确定 名字也不确定   -->
+        <div class="basic" v-bind:class="classArr" @click="changeMood">{{name}}</div>
+        <br><br>
+
+
+        <!-- 绑定class样式----d对象写法  适用于：要绑定的样式个数确定 名字也确定  要动态决定用不用  -->
+
+        <div class="basic" v-bind:class="classObj" @click="changeMood">{{name}}</div>
+        <br><br>
+        <div class="basic" v-bind:class="{atguigu1:true,atguigu2:false}" @click="changeMood">{{name}}</div>
+        <br>
+        <br>
+        <!--  绑定style样式 --数组写法  -->
+        <div class="basic" v-bind:style="styleObj">{{name}}</div>
+        <br><br>
+        <div class="basic" v-bind:style="[styleObj,styleObj2]">{{name}}</div>
+    </div>
+
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: '尚硅谷',
+                mood: 'normal',
+                classArr: ['atguigu1', 'atguigu2', 'atguigu3'],
+                classObj: {
+                    atguigu1: false,
+                    atguigu2: false,
+                },
+                styleObj:{
+                    fontSize:'30px',
+                    color:'red'
+                },
+                styleObj2:{
+                    backgroundColor: 'orange'
+                }
+            },
+            methods: {
+                changeMood() {
+                    const arr = ['happy', 'sad', 'normal']
+                    let i = Math.floor(Math.random() * 3)
+                    this.mood = arr[i]
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

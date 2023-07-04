@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(/^java$/.test('java')) //true
+        console.log(/^java$/.test('JAVA')) //false
+
+        console.log(/^java$/i.test('JAVA')) //true  修饰符i不区分大小写
+
+        console.log('-------------------')
+
+
+        const str = 'java是一门编程语言,学完Java工资很高'
+        const result = str.replace(/java/ig,'前端')  //修饰符g 是全局查找
+        console.log(result)
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">发送AJax请求</button>
+
+
+    <script type="text/javascript">
+        // 获取按钮元素
+        const btn = document.getElementById('btn')
+        // 点击事件
+        btn.addEventListener('click', function () {
+            // 创建ajax实例化对象
+            let xhr = new XMLHttpRequest()
+            // console.log('ajax实例化刚被创建出来',0 xhr.readyState)
+            //打开请求
+            xhr.open('get', 'https://iwenwiki.com/api/blueberrypai/getChengpinInfo.php')
+            // console.log('ajax已经打开了请求', 1 xhr.readyState)
+            // 发送请求 send()发送得是请求体数据 只不过get请求是没有请求体的 post请求才会有请求体
+            xhr.send()
+
+            // 客户端接收服务端响应回来的结果数据
+            xhr.onreadystatechange = function () {
+                // 判断
+                /*
+                2。已经完成了请求发送
+                3.响应结果途中还没有完全响应结果完毕...ing
+                4.已经完全响应完毕结果了
+                */
+                // console.log('', xhr.readyState)   2,3,4
+
+                if (xhr.readyState === 4) {
+                    // status是请求状态码  200-299之间
+                    if(xhr.status>=200 && xhr.status<300){
+                        // 获取请求体数据(JSON字符串  转换为JSON对象)
+                        console.log(JSON.parse(xhr.response))
+                    }
+                }
+            }
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>

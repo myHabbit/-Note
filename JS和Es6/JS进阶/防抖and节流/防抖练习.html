@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+
+
+    <script type="text/javascript">
+        // const input = document.getElementById('input')
+        // let timer = null
+        // input.addEventListener('input', function () {
+        //     if (timer !== null) {
+        //         clearTimeout(timer)
+        //     }
+        //     timer = setTimeout(function () {
+        //         console.log(input.value)
+        //     }, 1000)
+
+        // })
+
+
+        // 获取元素
+        const input = document.getElementById('input')
+        // 定义一个函数
+        function getValue() {
+            console.log(input.value);
+        }
+        // 在定义一个函数 里面有两个参数 一个是function函数 一个是时间
+        function getInput(fn, time) {
+            // 设置一个存放定时器的变量
+            let timer
+            // 返回的是一个函数
+            return function () {
+                // 判断timer里面是是否有定时器 如果有 则清除这个定时器
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                // 新增一个定时器 
+                timer = setTimeout(() => {
+                    fn()
+                }, time)
+            }
+        }
+        // 要触发的事件   调用getInput函数 里面传递两个参数  一个为上面定义函数 一个是时间
+        input.addEventListener('input', getInput(getValue, 500))
+    </script>
+</body>
+
+</html>

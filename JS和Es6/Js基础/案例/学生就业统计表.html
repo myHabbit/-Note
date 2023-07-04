@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>学生信息管理</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+                background-color: #ccc;
+                font-family: 'fangsong';
+                font-size: 23px;
+                margin-top: 60px;
+                text-align: center;
+            }
+
+            input {
+                width: 100px;
+                height: 30px;
+                margin-right: 20px;
+            }
+
+            h1 {
+                margin-bottom: 80px;
+            }
+
+            span {
+                margin-right: 10px;
+            }
+
+            .btn {
+                width: 100px;
+                height: 30px;
+                background-color: skyblue;
+                color: #fff;
+            }
+
+            select {
+                width: 100px;
+                height: 30px;
+                padding: 0 5px;
+                font-size: 18px;
+            }
+
+            h2 {
+                margin-top: 100px;
+                font-size: 47px;
+            }
+            .sp{
+                margin-left: 700px;
+            }
+           
+            table {
+                position: relative;
+                width: 800px;
+                height: 500px;
+                margin: 0 auto;
+            }
+
+            thead {
+                display: flex;
+                border-bottom: 1px solid black;
+                width: 920px;
+                height: 50px;
+                background-color: skyblue;
+                line-height: 50px;
+                justify-content: space-between;
+                margin: 0 auto;
+            }
+
+            thead th {
+                width: 115px;
+                height: 50px;
+                border-right: 1px solid black;
+                text-align: center;
+            }
+
+            tbody {
+                position: absolute;
+                width: 920px;
+                height: 400px;
+                background-color: #ccc;
+                line-height: 50px;
+            }
+
+            tbody tr {
+                width: 920px;
+                height: 50px;
+            }
+
+            tbody tr td {
+                width: 115px;
+                height: 50px;
+                border-right: 1px solid black;
+                border-bottom: 1px solid black;
+                border-left: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <form class="header" action="">
+            <h1>新增学员</h1>
+            <span>姓名：</span> <input type="text" class="uname">
+            <span>年龄：</span> <input type="text" class="age">
+            <span>性别：</span> <select name="yournam" id="" class="gender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <span>薪资:</span> <input type="text" class="salary">
+            <span>就业城市：</span><select class="city">
+                <option value="">北京</option>
+                <option value="">上海</option>
+                <option value="">杭州</option>
+                <option value="">重庆</option>
+                <option value="">成都</option>
+                <option value="">西安</option>
+                <option value="">兰州</option>
+                <option value="">庆阳</option>
+                <option value="">浙江</option>
+            </select>
+            <button class="btn">录入</button>
+        </form>
+        <h2>就业榜</h2>
+        <span class="sp">共有数据0条</span>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                        <th>薪资</th>
+                        <th>就业城市</th>
+                        <th>录入时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>${ele.stuID}</td>
+                        <td>${ele.uname}</td>
+                        <td>${ele.age}</td>
+                        <td>${ele.gender}</td>
+                        <td>${ele.salary}</td>
+                        <td>${ele.city}</td>
+                        <td>${ele.time}</td>
+                        <td>
+                            <a href="javascript:;">删除</a>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <script>
+            // 获取元素
+            // const uname = document.querySelector('.uname')
+            // const age = document.querySelector('.age')
+            // const gender = document.querySelector('.gender')
+            // const salary = document.querySelector('.salary')
+            // const city = document.querySelector('.city')
+            const tbody = document.querySelector('tbody')
+            const  sp = document.querySelector('.sp')
+            const initData = [
+                {
+                    stuID:1,
+                    uname :'迪丽热巴',
+                    age:22,
+                    gender:'女',
+                    salary:'12000',
+                    city:'城市',
+                    time:'2099/9/9 08:08:08'
+                }
+            ]
+
+            
+
+             // 存在本地存储
+            //  localStorage.setItem('data',JSON.stringify(initData))
+            // 1.渲染业务
+            //2.先读取本地存储得到数据
+            //3。本地存储有数据则记得转换为对象然后存储到变量里面 后期用于渲染页面
+            // 将本地存储的数据取出来
+            //4.如果没有数据 则用空数组来代替
+            const arr = JSON.parse(localStorage.getItem('data'))|| []
+            console.log(arr)
+
+            // 通过map和join方法渲染页面
+            function render(){
+                // 利用map遍历数组 返回对应tr的数组
+            const trArr = arr.map(function(ele,index){
+                    return `
+                    <tr>
+                        <td>${ele.stuID}</td>
+                        <td>${ele.uname}</td>
+                        <td>${ele.age}</td>
+                        <td>${ele.gender}</td>
+                        <td>${ele.salary}</td>
+                        <td>${ele.city}</td>
+                        <td>${ele.time}</td>
+                        <td>
+                            <a href="javascript:;" data-id='${index}'>删除</a>
+                        </td>
+                    </tr>
+                    `
+                })
+                console.log(trArr)
+                // 把数组转换为字符串 jion
+                // 吧生成的字符串追加给tbody
+                tbody.innerHTML = trArr.join()
+                // 显示共有几条数据
+                sp.innerHTML =`共有数据${arr.length}条` 
+            }
+            render()
+
+
+
+            // 新增业务
+            const header = document.querySelector('.header')
+            const uname = document.querySelector('.uname')
+            const salary = document.querySelector('.salary')
+            const gender = document.querySelector('.gender')
+            const city = document.querySelector('.city')
+            const age = document.querySelector('.age')
+            // 实例化
+            const data =  new Date()
+            // 获取年月日时分秒
+            let year = data.getFullYear()
+            let month = data.getMonth()
+            let today = data.getDate()
+            let hours = data.getHours()
+            let minutes = data.getMinutes()
+            let second = data.getSeconds()
+                    
+            // 给form表单注册提交事件, 同时要阻止默认行为
+            header.addEventListener('submit',function(e){
+                e.preventDefault()
+                 // 非空判断
+                if(!uname.value || !age.value || !salary.value){
+                return alert('输入内容不能为空')
+            }
+            // 给arr数组追加对象 里面存储 表单获取过来的数据
+            arr.push(
+                {
+                    stuID:arr.length + 1,
+                    uname :uname.value,
+                    age:age.value,
+                    gender:gender.value,
+                    salary:salary.value,
+                    city:city.value,
+                    // time:year+"  "+(month+1)+'/'+today+'  '+hours+':'+minutes+':'+second
+                    time:data.toLocaleString()
+                }
+            )
+
+            // 渲染页面和重置表单 (reset()方法)
+            render()
+            // reset()重置表单
+            // this.reset()
+            header.reset()
+
+            // 将数组重新存入本地存储里面  记得转换为JSON字符串
+            localStorage.setItem('data', JSON.stringify(arr))
+
+            })
+
+
+            //删除模块
+            // 1.采用事件委托形式 给tbody 注册点击事件
+            tbody.addEventListener('click',function(e){
+                // 判断是否点击的是删除按钮
+                if (e.target.tagName === 'A'){
+                    // alert(11)
+                    // 2.得到当前点击链接的索引号，渲染数据的时候，动态给a链接添加自定义属性 例如 data-id = ‘0’
+                    console.log(e.target.dataset.id)
+
+                }
+            })
+
+
+            
+       
+           
+
+
+
+        </script>
+    </body>
+
+    </html>
+
+</body>
+
+</html>

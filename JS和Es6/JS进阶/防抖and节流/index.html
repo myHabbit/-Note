@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点一下+1</button>
+
+    <script type="text/javascript">
+        const a = document.querySelector('.btn')
+
+        // 防抖
+        // function getBtn() {
+        //     console.log(1)
+        // }
+
+        // function btn(fn, time) {
+        //     return function (...arg) {
+        //         let timer = null
+        //         if (timer !== null) {
+        //             clearTimeout(timer)
+        //         }
+        //         timer = setTimeout(() => {
+        //             fn.apply(this, ...arg)
+        //             timer = null
+        //         }, time)
+        //     }
+        // }
+        // a.addEventListener('click', btn(getBtn, 500, ...arg))
+
+        // 节流
+        function getBtn() {
+            console.log(1)
+        }
+
+        function Btn(fn, time) {
+            return function () {
+                let timer = null
+                let
+                if (!timer) {
+                    setTimeout(() => {
+                        fn()
+                        timer = null
+                    })
+                }
+            }
+        }
+
+        a.addEventListener('click', Btn(getBtn, 500))
+
+    </script>
+
+</body>
+
+</html>

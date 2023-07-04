@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>用户名是 {{username}}</p>
+        <input type="text" v-model="username">
+
+
+        <p>选中的省份是 {{province}}</p>
+        <select  v-model="province">
+            <option value="1">请选择</option>
+            <option value="2">北京</option>
+            <option value="3">河北</option>
+            <option value="4">黑龙江</option>
+            <option value="5">兰州</option>
+
+        </select>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+    <script>
+          const vm = new Vue({
+            el:'#app',
+            data:{
+                // 名字
+                username:'安鑫',
+                // 省份
+                province:'5'
+            },
+
+          })
+    </script>
+</body>
+</html>

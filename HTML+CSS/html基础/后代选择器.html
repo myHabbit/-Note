@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        p{
+            color: antiquewhite;
+        }
+        /* 后代选择器 div为父级 p为子级 */
+        div p{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <!-- 后代选择器 有儿子 孙子 重孙子...... -->
+    <p>这是一个P标签</p>
+    <div>
+        <p>这是div的儿子p</p>
+    </div>
+</body>
+</html>

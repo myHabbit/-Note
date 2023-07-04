@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        #app div    h2:first-child{
+            color: orange;
+        }
+        #app div h2:last-child{
+            color: skyblue;
+        }
+        #app h2{
+            color: green;
+        }
+      
+    </style>
+</head>
+
+<body>
+
+    <!-- 准备好一个容器 -->
+    <div id="app">
+        <school></school>
+        <hello></hello>
+
+    </div>
+
+    <script type="text/javascript">
+
+        const school = Vue.extend({
+            template: `
+            <div>
+                <h2>学校名称: {{name}}</h2>
+                <h2>学校地址: {{address}}</h2>
+                <button v-on:click="showName">点我提示学校名</button>
+            </div>
+            `,
+            data() {
+                return {
+                    name: '苟剑楠',
+                    address: '陕西西安'
+                }
+            },
+            methods: {
+                showName(){
+                    console.log(this)
+                }
+            },
+        })
+    
+
+        const hello = Vue.extend({
+            template:`
+            <h2>{{msg}}</h2>
+            `,
+            data(){
+                return {
+                    msg:'你好 vue!'
+                }
+            }
+        })
+        console.log(school)
+        console.log(hello)
+
+        // 创建vm
+        new Vue({
+            el: '#app',
+            // 注册组件（局部）
+            components: {
+                school:school,
+                hello:hello
+            }
+        })
+
+    </script>
+</body>
+
+</html>

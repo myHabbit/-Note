@@ -1,0 +1,27 @@
+h2{
+    text-align: center;
+}
+.form-two{
+    text-align: center;
+    margin-top: 100px;
+}
+a{
+    text-decoration: none ;
+ }
+ li {
+    list-style: none;
+}
+.form-two ul li  input[username] 
+.form-two ul li input[username]{
+    font-size: 16px;
+}
+.form-two ul li input{
+    width: 275px;
+    height: 40px;
+    margin-top: 20px;
+
+}
+.form-two ul li input[type=submit] {
+    width: 100px;
+    height: 40px;
+}

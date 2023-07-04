@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "title": "今天天气不错",
+      "author": "苟剑楠",
+      "id": 2
+    },
+    {
+      "title": "今天她很美",
+      "author": "小苟的叔叔",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "body": "喜大普奔",
+      "postId": "2",
+      "id": 1
+    },
+    {
+      "body": "喜大普奔",
+      "postId": "2",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

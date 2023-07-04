@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 第三步 编写组件标签 -->
+        <school></school>
+        <school></school>
+
+        <hr>
+        <!-- 第三步 编写组件标签 -->
+        <student></student>
+
+    </div>
+    <div id="root2">
+        <hello></hello>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        // 第一步 创建一个school组件
+        const school = Vue.extend({
+            template: `
+            <div class='demo'>
+                <h2>学校名称: {{schoolName}}</h2>
+                <h2>学校地址: {{address}}</h2>
+                <button v-on:click="showName">点我提示学校名</button>
+            </div>
+            `,
+            // el: '#app',  
+            data() {
+                return {
+                    schoolName: '尚硅谷',
+                    address: '陕西西安'
+                }
+            },
+            methods: {
+                showName() {
+                    alert(this.schoolName)
+                }
+            }
+        })
+        // 第一步 创建一个student组件
+        const student = Vue.extend({
+            template: `
+            <div>
+            <h2>学生姓名: {{studentName}}</h2>
+            <h2>学生年龄: {{age}}</h2>
+            </div>
+            `,
+            data() {
+                return {
+                    studentName: '安鑫',
+                    age: 80
+                }
+            }
+        })
+
+        // 第一步.创建 hello组件
+        const hello = Vue.extend({
+            template: `
+                 <h2>你好啊! {{name}}</h2>
+                `,
+            data() {
+                return {
+                    name: 'Tom'
+                }
+            }
+        })
+        //第二步 全局注册组件   
+        Vue.component('hello', hello)
+        // 创建vm
+        new Vue({
+            el: '#app',
+            // 第二部注册组件（局部注册）
+            components: {
+                school: school,
+                student: student,
+            },
+
+        })
+        new Vue({
+            el:'#root2'
+        })
+    </script>
+</body>
+
+</html> 

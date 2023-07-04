@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--  -->
+        姓名:<input type="text" v-model.trim="username">
+        <hr>
+        <!-- .number 可以自动将用户的输入值转为数值类型 -->
+        年龄: <input type="text" v-model.number="age">
+        <hr>
+        地址: <input type="text">
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                // 姓名
+                username:'安鑫     01',
+                age:40,
+                adress:'阳村'
+
+            },
+            methods:{}
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(176 174 174);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding-top: 90px;
+        }
+
+        .header span {
+            color: #ccc;
+            font-weight: 800;
+            font-size: 70px;
+            opacity: 0.5;
+        }
+
+        .content {
+            width: 95px;
+            height: 370px;
+            border: 1px solid black;
+            margin: auto;
+            margin-top: 30px;
+            border-top-right-radius: 60px;
+            border-top-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            border-bottom-left-radius: 60px;
+            box-shadow: 30px 20px 20px #878585;
+
+        }
+        .big-box{
+            position: relative;
+            top: -600px;
+        }
+
+        .box {
+            position: relative;
+            top: 200px;
+            left: 470px;
+            width: 10px;
+            height: 350px;
+            background: linear-gradient(#333, white);
+        }
+
+
+        .small-box {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #878585;
+            border-radius: 50%;
+            position:absolute;
+            top: 530px;
+            left: 450px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span>17°</span>
+        <div class="content"></div>
+        <div class="big-box">
+            <div class="box"></div>
+            <div class="small-box"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const box = document.querySelector('.box')
+    const small_box = document.querySelector('.small-box')
+    box.addEventListener('mousemove', function (e) {
+        // console.log(11);
+        // console.log(1)
+        // console.log(e.pageY)
+        // 鼠标在盒子上的坐标  = 鼠标在页面中的坐标 - 盒子的坐标
+
+        let y = e.pageY - box.getBoundingClientRect().top
+        small_box.style.top = y + 'px'
+    })
+
+
+</script>
+
+</html>

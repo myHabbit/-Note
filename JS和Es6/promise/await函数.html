@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+        1.async 函数 结合await 表达式
+          1.1 async函数当中 不一定完全结合await
+          1.2 有await函数的一定是async函数
+        2.await相当于是then  直接可以拿到实例化promise对象的结果值
+        3.await一定要写在async函数中 但是async函数之中可以没有await
+
+        // 如果await右侧为非promise类型的数据 await后面的值是什么 得到的结果就是什么
+        //如果await右侧为promise成功类型的数据 则得到的结果就是promise成功后的值
+        //如果await右侧为promise失败类型的数据 需要我们try catch去捕获 就可以拿到失败的值
+        //加try catch 好处是 有了try catch后续的代码将继续执行 
+     -->
+    <script type="text/javascript">
+        async function main() {
+            // 内部执行异步功能  并且得到成功的结果数据值
+            let p = new Promise((resolve, reject) => {
+                // resolve('ok')
+                reject('error')
+            })
+            //1.右侧为promise的情况
+            // let res = await p
+
+            // 如果await右侧为其他类型的数据
+            // let res = await 1
+            // console.log(res)
+
+            // 如果promise为失败的状态
+            try {
+                let res = await p
+            } catch (e) {
+                console.log(e)
+            }
+
+        }
+        main()
+
+
+        const p = new Promise((resolve, reject) => {
+            resolve('ok')
+        })
+        p.then(value => {
+            console.log(value)
+        })
+
+        let o = Promise.resolve('ok')
+        o.then((value) => {
+            console.log(value)
+        })
+    </script>
+</body>
+
+</html>

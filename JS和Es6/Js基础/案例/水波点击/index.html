@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background: linear-gradient(200deg ,#80d0c7,#13547a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        .box{
+            width: 500px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        button{
+            position: relative;
+            border:  none ;
+            border-radius: 30px;
+            background: linear-gradient(to right ,#80d0c7,#13547a);
+            color: #fff;
+            width: 200px;
+            height: 60px;
+            margin: 20px 0;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0,0.1);
+            overflow: hidden;
+        }
+        button:hover{
+            box-shadow: 3px 5px 10px rgba(0, 0, 0,0.2);
+        }
+        button span{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            animation: animate 1s ease;
+        }
+ 
+        @keyframes animate {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+
+            to {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button>点赞</button>
+        <button>关注</button>
+        <button>收藏</button>
+        <button>转发</button>
+    </div>
+
+    <script>
+        // 获取所有div
+        const btn = document.querySelectorAll('.box button')
+        // for循环给button添加点击事件
+        for (let i =0;i<btn.length;i++){
+            btn[i].addEventListener('click',function(e){
+                // 增加一个新的节点
+                let span = document.createElement('span')
+                // 确定这个span的位置
+                span.style.left = e.pffsetX+'px'
+                span.style.top = e.offsetTop+'px'
+                // 将这个span标签加到btn中
+                btn[i].appendChild(span)
+                span.style.opacity = '0.4'
+                // 定时器 一秒后删除span标签
+                setTimeout(function(){
+                    span.remove()
+                },1000)
+            })
+        }
+        
+    </script>
+</body>
+</html>

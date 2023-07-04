@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            display: inline-block;
+            width: 50px;
+            height: 40px;
+            background-color: red;
+        }
+
+        .big-box {
+            width: 400px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        .small-box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .small-box:nth-child(2){
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            top: -120px;
+        }
+
+        .box {
+            width: 350px;
+            height: 150px;
+            background-color: aqua;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- prevent 阻止事件的默认行为 -->
+        <h4>prevent 事件修饰符的应用场景</h4>
+        <!-- 阻止了a链接的跳转 -->
+        <a href="https://www.baidu.com" v-on:click.prevent="btn">百度首页</a>
+        <a href="https://www.baidu.com" v-on:click="btn">百度首页</a>
+
+        <h4>stop事件修饰符的应用场景</h4>
+        <div class="big-box" v-on:click="onOuterClick">
+            外层div
+            <!-- stop阻止了事件的冒泡 -->
+            <div class="small-box" v-on:click.stop="onInnerClick">内层div</div>
+        </div>
+
+
+        <h4>capture事件修饰符的应用场景</h4>
+        <!-- stop以捕获的模式触发当时的事件处理函数 -->
+        <div class="big-box" v-on:click.capture="onOuterClick">
+            外层div
+
+            <div class="small-box" v-on:click="onInnerClick">内层div</div>
+        </div>
+
+
+
+        <h4>once事件修饰符的应用场景</h4>
+        <!-- once 绑定的事件只触发一次 -->
+        <div class="big-box" v-on:click.once="onOuterClick">
+            外层div
+
+        </div>
+
+        <h4>self事件修饰符的应用场景</h4>
+        <div class="big-box" v-on:click.capture="onOuterClick">
+            外层div
+            <div class="box" v-on:click="onInnClick">中盒子</div>
+            <div class="small-box" v-on:click="onInnerClick">内层div</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                btn() {
+                    alert('你好')
+                },
+                onOuterClick() {
+                    alert('你好大盒子')
+                },
+                onInnerClick() {
+                    alert('你好小盒子')
+                },
+                onInnClick() {
+                    alert('你好中盒子')
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

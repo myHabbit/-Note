@@ -1,0 +1,26 @@
+
+.date {
+    display: flex;
+    width: 90px;
+    border-radius: 10px;
+    flex-direction: column;
+    font-weight: bold;
+    text-align: center;
+    background: #dfdfdf;
+    overflow: hidden;
+
+    .month {
+        height: 25px;
+        line-height: 25px;
+        background: #D62828;
+        color: #fff;
+        font-size: 13px;
+    }
+
+    .day {
+        height: 45px;
+        line-height: 45px;
+        font-size: 35px;
+        background: #fff;
+    }
+}

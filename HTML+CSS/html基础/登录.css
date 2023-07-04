@@ -1,0 +1,29 @@
+li{
+   list-style: none;
+}
+a{
+   text-decoration: none ;
+}
+.form-one{
+   text-align: center;
+   margin-top: 100px ;
+}
+h2{
+   text-align: center;
+}
+
+        
+.form-one ul li input[type=text],
+.form-one ul li input[type=password] {
+    font-size: 16px;
+}
+
+.form-one ul li input {
+    width: 275px;
+    height: 40px;
+    margin-top: 20px;
+}
+.form-one ul li input[type=button] {
+    width: 100px;
+    height: 40px;
+}

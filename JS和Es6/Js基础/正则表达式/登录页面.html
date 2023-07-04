@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            font-family: 'fangsong';
+        }
+
+        header {
+            width: 100vw;
+            height: 90px;
+            background-color: #ccc;
+            line-height: 90px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        header ul {
+            display: flex;
+        }
+
+        .logo {
+            font-size: 30px;
+        }
+
+        header ul li {
+            padding-right: 40px;
+        }
+
+        header ul li a {
+            font-size: 20px;
+            color: black;
+        }
+
+        .content {
+            position: relative;
+            width: 100vw;
+            height: 500px;
+            background-color: rgb(195, 218, 237);
+        }
+
+        .nav {
+            width: 430px;
+            height: 320px;
+            background-color: #fff;
+            position: absolute;
+            top: 50px;
+            right: 400px;
+        }
+
+        .tab-nav {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+
+        }
+
+        .active {
+            float: left;
+            padding-left: 20px;
+            color: black;
+            font-size: 22px;
+        }
+
+        .active2 {
+            float: right;
+            padding-right: 20px;
+            color: black;
+            font-size: 22px;
+        }
+
+        .act {
+            border-bottom: 1px solid green;
+        }
+
+        .tab-pane img {
+            width: 180px;
+            height: 180px;
+            margin-right: 80px;
+        }
+
+        .tab-pane {
+            position: absolute;
+            right: 450px;
+            top: 150px;
+        }
+
+        .tab-pane input {
+            margin-bottom: 10px;
+            width: 330px;
+            height: 40px;
+            padding-left: 30px;
+            border: 1px solid green;
+        }
+
+        .tab-pane span {
+            color: rgb(16, 163, 220);
+        }
+
+        .btn {
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+        }
+
+        .denglu {
+            width: 300px;
+            height: 40px;
+            background-color: rgb(29, 191, 150);
+            color: #fff;
+            border: 0;
+            margin-left: 20px;
+        }
+
+        .i1 {
+            float: left;
+            margin-top: 10px;
+        }
+
+        .i2 {
+            float: right;
+            margin-top: 10px;
+        }
+        .tab-pane .txt{
+            width: 20px;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 登录头部 -->
+    <header>
+        <div class="logo">小兔仙儿</div>
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">管理员</a></li>
+            <li><a href="#">商城</a></li>
+            <li><a href="#">收藏</a></li>
+        </ul>
+    </header>
+    <!-- 内容部分 -->
+    <div class="content">
+        <form action="">
+            <div class="nav">
+                <div class="tab-nav">
+                    <a href="javascript:;" class="active act" data-id="0">账户登录</a>
+                    <a href="javascript:;" class="active2" data-id="1">二维码登录</a>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <input required autocomplete="off" type="text" class="username" placeholder="请输入用户名/手机号码">
+                <br>
+                <input required autocomplete="off" type="password" class="password" placeholder="请输入密码">
+                <br>
+                <input type="checkbox" class="txt"> 我已同意<span>《服务条款》</span> 和<span>《内容条款》</span>
+                <br>
+                <button class="denglu">登录</button>
+                <br>
+                <i class="i1">忘记密码？</i>
+                <i class="i2">免费注册</i>
+            </div>
+            <div class="tab-pane" style="display:none">
+                <img src="./二维码.jpeg" alt="">
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        // tab切换模块 事件委托
+        const tab_nav = document.querySelector('.tab-nav')
+        const pane = document.querySelectorAll('.tab-pane')
+        // 事件监听
+        tab_nav.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                // 去掉上一个active
+                tab_nav.querySelector('.act').classList.remove('act')
+                // 当前元素添加active
+                e.target.classList.add('act')
+
+
+                // 先干掉所有人   for循环
+                for (let i = 0; i < pane.length; i++) {
+                    pane[i].style.display = 'none'
+
+                }
+                // 给对应序号的pane显示
+                pane[e.target.dataset.id].style.display = 'block'
+
+            }
+        })
+
+        // 表单验证
+        // 1.用户名验证
+        const username = document.querySelector('.username')
+        //  添加change事件
+        username.addEventListener('change', function () {
+            const name = /^[a-zA-Z0-9-_]{6,10}$/
+            if (name.test(username.value)) {
+                username.style.color = 'green'
+            } else {
+                username.style.color = 'red'
+            }
+        })
+
+        // 密码验证
+        const password = document.querySelector('.password')
+        const word = /^[a-zA-Z0-9]{6,12}$/
+        password.addEventListener('change', function () {
+            if (word.test(password.value)) {
+                password.style.color = 'green'
+            } else {
+                password.style.color = 'red'
+            }
+        })
+
+
+        // 点击提交模块
+        const form = document.querySelector('form')
+        const txt = document.querySelector('.txt')
+        form.addEventListener('submit',function(e){
+            e.preventDefault()
+            if (!txt.checked){
+                return alert('请勾选同意协议')
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

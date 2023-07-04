@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- index.js存在兼容性问题 -->
+    <!-- <script src="./index.js"></script> -->
+    <!-- 应该引用webpack自动生成的解决了兼容性问题的js -->
+    <script src="../dist/bundle.js"></script>
+</head>
+<body>
+    <ul>
+        <ul>
+            <li>这是第1个li</li>
+            <li>这是第2个li</li>
+            <li>这是第3个li</li>
+            <li>这是第4个li</li>
+            <li>这是第5个li</li>
+            <li>这是第6个li</li>
+            <li>这是第7个li</li>
+            <li>这是第8个li</li>
+            <li>这是第9个li</li>
+        </ul>
+    </ul>
+    <!-- <script>
+        const lis = document.querySelectorAll('ul li')
+        for (let i =0;i<lis.length;i++){
+            if (i % 2 === 0){
+                lis[i].style.backgroundColor = 'red'
+            }else{
+                lis[i].style.backgroundColor = 'green'
+            }
+        }
+    </script> -->
+</body>
+</html>

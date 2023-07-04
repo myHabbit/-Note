@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx</title>
+    <script type="text/javascript" src="../react基础库/unpkg.com_react@18.0.0_umd_react.development.js"></script>
+    <!-- 引入react-dom, 用于支持react操作DOM -->
+    <script type='text/javascript' src='../react基础库/unpkg.com_react-dom@18.0.0_umd_react-dom.development.js'></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type='text/javascript' src='../react基础库//unpkg.com_babel-standalone@6.26.0_babel.min.js'></script>
+
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <!-- 设置js代码被babel处理 -->
+    <script type="text/babel">
+        // 创建一个React元素   命令式编程
+        // const btn = React.createElement('button', {}, '点我')
+
+        // const app = ReactDOM.createRoot(document.getElementById('root'))
+
+        // app.render(btn)
+
+
+        // 声明式编程，结果导向的编程
+        // 在react仲可以JSX创建react元素
+        // 如果在react中使用 必须进入bable 完成"翻译"工作
+
+        /* 
+           JSX就是React.createElement的语法糖
+           JSX在执行之前都会被babel转换为js代码
+        */
+        const div = <div>
+            我是一个div
+            我是按钮<button></button>
+        </div>
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+
+        root.render(div)
+
+    </script>
+</body>
+
+</html>

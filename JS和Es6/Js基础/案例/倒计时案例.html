@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10">
+        重要须知
+
+         本协议系《乐橙服务协议》、《乐橙隐私政策》中一部分，由乐橙平台经营者（即杭州华橙网络科技有限公司，下称“华橙网络”）与乐橙云服务的使用者(以下简称“您”或“用户”)所订立。
+        华橙网络在此特别提醒您，在使用乐橙云服务之前，请您务必审慎阅读、充分理解《乐橙云服务协议》、《乐橙隐私政策》（以下简称“本协议”），特别是以粗体/下划线/斜体标识的条款。您勾选或点击本协议或您使用乐橙云服务的任何服务即表示接受本协议的全部条款（包括华橙网络按照本协议说明收集、使用和处理您的相关个人信息及《乐橙服务协议》）。
+        
+    </textarea>
+    <br> 
+    <button disabled="disabled" class="btn">已阅读协议(5)秒</button>
+
+
+
+    <script>
+        // 获取元素
+        const btn = document.querySelector('.btn')
+        let i =5
+        // 开启定时器
+       let n = setInterval(function(){
+            i--
+            btn.innerHTML = `已阅读协议(${i})秒`
+            if(i === 0){
+                clearInterval(n)
+                btn.innerHTML = '已确定'
+                btn.disabled = false
+            }
+        },1000)
+
+    </script>
+</body>
+
+</html>

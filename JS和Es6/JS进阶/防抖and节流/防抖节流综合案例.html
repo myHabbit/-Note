@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 80px;
+            margin-top: 40px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button id="btn">点我+1</button>
+    <div class="box">
+
+    </div>
+
+
+    <script type="text/javascript">
+        // 获取元素
+        const input = document.getElementById('input')
+        const btn = document.getElementById('btn')
+
+        const box = document.querySelector('.box')
+
+        // 防抖
+        // 声明一个函数
+        function getInput(e) {
+            if (e.key === 'Enter') {
+            box.innerHTML = input.value.trim()
+            input.value = ''
+            }
+        }
+        // 声明一个函数 传两个参数 一个为函数 一个为时间
+        function getText(fn, time) {
+            // 声明一个变量存放定时器
+            let timer = null
+            // 判断 如果存在定时器 则先清除定时器
+            return function () {
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                // 如果没有定时器 则开启一个的定时器
+                timer = setTimeout(() => {
+                    // 调用函数
+                    fn.apply(this,arguments)
+                }, time)
+            }
+        }
+        // 绑定事件并调用函数
+        input.addEventListener('keydown', getText(getInput, 1000))
+
+
+        // 节流
+
+        // 声明一个函数
+        let i = 1
+        function getNum() {
+            box.innerHTML = i++
+        }
+        // 定义一个函数  
+        function Num(fn, t) {
+            // 声明一个变量存放定时器
+            let tim = null
+            // 返回一个函数
+            return function () {
+                // 判断变量里面是否有定时器 如果没有则开启一个
+                if (!tim) {
+                    tim = setTimeout(() => {
+                        // 调用函数
+                        fn()
+                        // 清空定时器
+                        tim = null
+                    }, t)
+                }
+            }
+        }
+        // 绑定事件 并调用函数
+        btn.addEventListener('click', Num(getNum, 500))
+    </script>
+
+</body>
+</htm

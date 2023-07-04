@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>promise初体验</h1>
+    <hr>
+    <button style="background-color: skyblue;color: #fff; border: none; height: 40px; cursor: pointer; ">点击抽奖</button>
+
+
+    <script type="text/javascript">
+
+        function rand(m, n) {
+            return Math.floor(Math.random() * (n - m + 1) + m - 1)
+        }
+
+        // 获取元素
+        const btn = document.querySelector('button')
+        // 绑定单击事件
+        btn.addEventListener('click', function () {
+            // // 定时器
+            // setTimeout(() => {
+            //     // 30%中奖概率
+            //     // 获取从1-100的一个随机数
+            //     let n = rand(1, 100)
+            //     // 判断
+            //     if (n <= 30) {
+            //         alert('恭喜您 奖品为10w元')
+            //     } else {
+            //         alert('再接再厉')
+            //     }
+            // }, 1000)
+
+            // promise 形式实现
+            // resolve 解决   函数类型的数据  异步任务成功调用
+            // reject  拒绝   函数类型的数据  异步任务失败调用
+            const p = new Promise((resolve, reject) => {
+                // 定时器
+                setTimeout(() => {
+                    // 30%中奖概率
+                    // 获取从1-100的一个随机数
+                    let n = rand(1, 100)
+                    // 判断
+                    if (n <= 30) {
+                        resolve(n)   //将promise对象的状态设置为成功
+                    } else {
+                        reject(n)    //将promise对象的状态设置为失败
+                    }
+                }, 1000)
+            })
+            // 调用then方法
+            // value值
+            // reason 理由
+            p.then((value) => {
+                alert('恭喜您 奖品为10w元 您的中奖数字为 ' + value)
+            }, (reason) => {
+                alert('再接再厉,您的号码为 ' + reason)
+            })
+        })
+
+    </script>
+</body>
+
+</html>

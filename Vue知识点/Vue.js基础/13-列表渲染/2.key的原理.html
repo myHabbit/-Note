@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+
+
+    <!-- v-for指令
+    1.用于展示列表数据
+    2.语法:v-for="(item,index) in xxx" v-bind:key="yyy"
+    3.可遍历 数组 对象 字符串(用的很少) 指定次数(用的很少) -->
+
+
+
+    <div id="app">
+        <!-- 遍历数组 -->
+        <h2>人员列表</h2>
+        <button @click.once="add">添加一个老刘</button>
+        <ul>
+            <li v-for="(p,index) in persons" v-bind:key="p.id">
+                {{p.name}}-{{p.age}}
+                <input type="text">
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                persons: [
+                    { id: '001', name: '张三', age: 18 },
+                    { id: '002', name: '李四', age: 20 },
+                    { id: '003', name: '王五', age: 20 },
+                ],
+
+            },
+            methods: {
+                add() {
+                    const p = { id: '004', name: '老刘', age: 48 }
+                    this.persons.unshift(p)
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>

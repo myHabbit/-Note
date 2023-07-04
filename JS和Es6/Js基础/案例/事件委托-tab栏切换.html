@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .header {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background-color: aqua;
+            margin: auto;
+            display: flex;
+            padding: 20px 30px;
+        }
+
+        .header ul {
+            display: flex;
+            margin-left: 50px;
+            margin-top: 15px;
+
+        }
+
+        .header ul li {
+            padding-right: 15px;
+        }
+
+        .box {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            width: 500px;
+            height: 300px;
+            background: red;
+        }
+
+        .search {
+            display: block;
+        }
+        .active{
+            color :orange;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>每日特价</h1>
+        <ul class="header-ul">
+            <li><a href="#" class="active" data-id="0">精选</a> </li>
+            <li><a href="#" data-id="1">美食</a> </li>
+            <li><a href="#" data-id="2">百货</a> </li>
+            <li><a href="#" data-id="3">个性</a> </li>
+            <li><a href="#" data-id="4">预告</a> </li>
+        </ul>
+        <div class="text">
+
+       
+        <div class="box search">11</div>
+        <div class="box">22</div>
+        <div class="box">33
+        </div>
+        <div class="box"> 44
+        </div>
+        <div class="box"> 55
+        </div>
+        <div class="box">66
+        </div>
+     </div>
+    </div>
+
+
+
+
+    <script>
+
+        // 获取ul父元素
+        const ul = document.querySelector('.header .header-ul')
+        // 添加事件
+        ul.addEventListener('click', function (e) {
+            // console.log(e.target)
+            // 只有点击了a 才会添加类的删除类
+            if (e.target.tagName === 'A') {
+
+                //移除原来的search
+                document.querySelector('.header .active').classList.remove('active')
+                // 给当前的添加
+                e.target.classList.add('active')
+
+
+
+            // 大盒子模块
+            // 用自定义属性拿到索引号
+            const  i= +e.target.dataset.id
+            // 排他思想 先移除原来的search
+            document.querySelector('.header .search').classList.remove('search')
+            document.querySelector(`.header .box:nth-child(${i + 1})`).classList.add('search')
+            // 给对应的添加search
+
+
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

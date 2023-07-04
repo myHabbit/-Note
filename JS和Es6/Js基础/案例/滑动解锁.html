@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(200deg,#80d0c7,#13547a);
+            
+        }
+        .box{
+            position: relative;
+            width: 200px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            transition: all 2s;
+            overflow: hidden;
+        }
+        .box span{
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            background:linear-gradient(to right,red,green);
+            border-radius: 30px;
+            position: absolute;
+            left: -200px;
+            /* animation: ball 2s ease; */
+
+
+        }
+        .btn{
+            margin-top: 30px;
+            width: 40px;
+            height: 35px;
+            border-radius: 10px;
+            border: 0;
+            
+        }
+        @keyframes ball{
+            0%{
+                left: -200px;
+               
+            }
+
+            100%{
+                left: 0px;
+            }
+        }
+        @keyframes box{
+            0%{
+                left: 0px;
+               
+            }
+
+            100%{
+                left: -200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="box">
+            <span></span>
+        </div>
+        <button class="btn">关</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.btn')
+        const box = document.querySelector('.box')
+        const span = document.querySelector('.box span')
+        box.addEventListener('mousemove', function (e) {
+            console.log(e.pageX)
+            let y = e.pageX  - box.getBoundingClientRect().right
+            console.log(y);
+            span.style.left = y + 'px'
+        })
+        btn.addEventListener('click',function(){
+          if(btn.innerHTML === '关'){
+            span.style.animation = 'ball 2s ease'
+            span.style.left = '0px'
+            btn.innerHTML = '开'
+          }else{
+            span.style.animation = 'box 2s ease'
+            span.style.left='-200px'
+            btn.innerHTML = '关'
+          }
+        })
+    </script>
+</body>
+</html>

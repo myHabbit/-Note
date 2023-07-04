@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue检测对象改变的原理</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>学校名称: {{name}}</h2>
+        <h2>学校地址: {{adress}}</h2>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip  = false   //阻止vue在启动时生成生产提示
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name:'尚硅谷',
+                adress:'西安',
+                student:{
+                    name:'tom',
+                    age:{
+                        rAge:40,
+                        sAge:29
+                    },
+                    friends:[
+                        {
+                            name:'jerry',   age:35}
+                    ]
+                   
+                }
+            },
+
+        })
+    </script>
+
+</body>
+
+</html>

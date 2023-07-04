@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 空格隔开得是后代选择器 儿子 孙子 重孙 */
+        /* div a{
+            color: aqua;
+        } */
+        /* 只想选中div的儿子这个a */
+        div>a{
+            color: aquamarine;
+        }
+        div>p>a{
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 子代选择器 -->
+    <div>
+        父级
+        <a href="#">这是div里面的a</a>
+        <p>
+            <a href="#">这是div里面的p里面的a</a>
+        </p>
+    </div>
+</body>
+</html>

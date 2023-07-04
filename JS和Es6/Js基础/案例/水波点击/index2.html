@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(200deg, #80d0c7, #13547a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .box {
+            width: 500px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        button {
+            position: relative;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(to right, #80d0c7, #13547a);
+            color: #fff;
+            width: 200px;
+            height: 60px;
+            margin: 20px 0;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.1);
+            /* 隐藏溢出部分 */
+            overflow: hidden;
+        }
+
+        button:hover {
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button span {
+            display: none;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            /* 沿x轴y轴各移动百分之五十 */
+            transform: translate(-50%, -50%);
+            /* 使用动画 */
+            animation: animate 1s ease;
+        }
+
+        @keyframes animate {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+
+            to {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button>点赞 <span>11</span></button>
+        <button>关注 <span></span></button>
+        <button>收藏 <span></span></button>
+        <button>转发<span></span></button>
+    </div>
+
+    <script>
+        const btns = document.querySelectorAll('button')
+        const span = document.querySelectorAll('span')
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function (e) {
+                if (e.target.tagName === 'BUTTON') {
+                    span[i].style.display = 'block'
+                    span[i].style.top = e.offsetY + 'px'
+                    span[i].style.left = e.offsetX + 'px'
+                    // 一秒后隐藏span
+                    setTimeout(function () {
+                        span[i].style.display = 'none'
+                    }, 500)
+                }
+
+
+
+
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>

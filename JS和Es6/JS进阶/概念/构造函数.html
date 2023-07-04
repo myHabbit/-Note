@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+        // 构造函数
+        function Dog(name,age){
+            // 此处的this为创建的对象
+            // this.属性 = 形参name
+            this.name = name
+            this.age = age
+        }
+        // 调用的时候必须new 实例化
+       const dog = new Dog('哈士奇',3)
+       console.log(dog)
+    </script>
+</body>
+
+</html>

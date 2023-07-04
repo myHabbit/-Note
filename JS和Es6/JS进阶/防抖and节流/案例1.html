@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn1">点我+2</button>
+    <button class="btn2">点我+1</button>
+    <div type="text">
+
+        <script type="text/javascript">
+
+            // <!-- 防抖 -->
+            // <!-- 获取元素 -->
+            const btn1 = document.querySelector('.btn1')
+            const btn2 = document.querySelector('.btn2')
+            const input = document.querySelector('div')
+            let i = 1
+            // 声明一个函数
+            function getBtn1() {
+                input.innerHTML = i++
+            }
+
+            // 声明一个函数
+            function getNum1(fn, time) {
+                // 声明一个变量存放定时器
+                let timer = null
+                // 切记 这里返回的是一个函数
+                return function () {
+                    // 判断是否有定时器
+                    if (timer !== null) {
+                        clearTimeout(timer)
+                    }
+                    timer = setTimeout(() => {
+                        // 调用函数
+                        fn()
+                    }, time)
+                }
+
+
+            }
+            // 绑定事件调用函数
+            btn1.addEventListener('click', getNum1(getBtn1, 500))
+
+
+            // 节流
+            // 声明一个函数
+            let j = 1
+            function getBtn2() {
+                input.innerHTML = j++
+            }
+
+            // 声明一个函数
+            function getNum(fn, t) {
+                // 声明一个变量存放定时器
+                let time = null
+                // 返回一个函数
+                return function () {
+                    // 判断是否有定时器
+                    if (!time) {
+                        time = setTimeout(() => {
+                            fn()
+                            // 清空定时器
+                            time = null
+
+                        },t)
+                    }
+                }
+
+            }
+            btn2.addEventListener('click', getNum(getBtn2, 1000))
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>学校名称: {{name}}</h2>
+        <h2>学校地址: {{address}}</h2>
+    </div>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: '黑马',
+                address: '西安'
+            }
+        })
+
+    </script>
+</body>
+
+</html>

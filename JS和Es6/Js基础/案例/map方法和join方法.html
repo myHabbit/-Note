@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ['red', 'blue', 'green']
+        // map方法  处理数据 并且返回一个数组
+      const arr1 = arr.map(function (ele, index) {
+            // console.log(ele)  //数组元素
+            // console.log(index) //索引号
+            return ele + '颜色'
+            
+        })
+        console.log(arr1)
+
+        // join方法-  吧数组转换为字符串
+        console.log(arr1.join())  //小括号为空 则逗号分隔
+        console.log(arr1.join(''))  //小括号是空字符串 则元素之间没有分割符
+        console.log(arr1.join('|'))  //小括号是空字符串 则元素之间没有分割符
+
+
+    </script>
+</body>
+
+</html>

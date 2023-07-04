@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 合并单元格 -->
+    <!-- 给保留的单元格设置：跨行合并（rowspan） 或者跨列合并（colspan） -->
+    <table border="1" width="300px" height="200px">
+        <caption><strong>学生成绩单</strong> </caption>
+        <tr>
+            <th>姓名</th>
+            <th>成绩</th>
+            <th>评语</th>
+        </tr>
+
+        <tr>
+            <td>小魏同学</td>
+            <td rowspan="2">100分</td>
+            <td>孩砸 真棒</td>
+        </tr>
+        <tr>
+            <td>小苟同学</td>
+            <td>再接再厉</td>
+        </tr>
+        <tr>
+            <td>总结</td>
+            <td colspan="">郎才女貌</td>
+        </tr>
+
+    </table>
+</body>
+</html>

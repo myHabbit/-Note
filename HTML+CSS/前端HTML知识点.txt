@@ -1,0 +1,227 @@
+HTTP请求 HTTP协议 超文本传输协议 (http://)
+
+Html5: 全称: Hyper Text Markup Language  超文本标记语言
+W3C 组织: 是万维网的主要国际标准组织 成立于1994年 负责制定Web标准 主要是HTMl+CSS
+
+转义字符:
+  &lt;  小于号
+  &gt; 大于号
+  &nbsp;  空格(不会被折叠)
+  &copy;  版权符号@ 
+
+class(类名): 页头 header ,  logo logo ,  导航条 nav , 横幅 banner , 内容区域 content , 页脚 footer, 功能区 tool.
+
+HTML骨架:
+1.第一行 DTD
+2.第二行 html标签对 header标签对是网页配置 body标签对是 网页内容
+
+DTD：
+文档类型申请/文档类型定义 <!DOCTYPE html>
+
+        <dt>HTML</dt>
+        <dd>超文本标记语言</dd>
+        <dt>css</dt>
+        <dd>层叠式样式表</dd>
+        <dt>javascript</dt>
+        <dd>js脚本程序</dd>
+
+用什么标签 要看html的语义  div标签是分割的语义
+
+
+网页的字符集 UTF-8(一个文字占三个字节 文字很全) gb2312(gbk)(一个文字占两个字节 文字不全)
+
+SEO:搜索引擎优化 遵守的规则有 书写好网页title  两个meta标签 name="Keywords"  name="Deacription"  h1不可使用多次 
+<meta name="Keywords" content="小魏医生,有责任心 ,踏实肯干">
+ <meta name="Deacription" content="内科,外科,口腔科,皮肤科">
+
+Http请求：
+浏览器发出HTTP请求 服务器发回HTTP响应 将做好的网页上传到服务器上 才能被用户看见
+
+
+&emsp; 代表一个空格符
+box-sizing:border-box属性 ：加了box-sizing:border-box属性，padding和border的值就不会在影响元素的宽高，相当于把padding和border的值都算在content里
+盒子模型会自动根据padding和border的值来调整content的值，就不需要手动调整
+
+html列表 
+ul 为无序列表 有小圆点
+
+ol 为有序列表 
+orderde  list 有序列表  list item 列表项
+
+<ol>
+                    <li>
+                        <dl>
+                            <dt>《养身唐》</dt>
+                            <dd>11111111</dd>
+                        </dl>
+                    </li>
+                </ol>
+
+dl 为定义列表 dt 数据项 dd 数据定义    dl>dt>dd
+只要语义上有"解释说明" 含义的文字 且为列表形态 应该使用定义列表
+
+ol标签的 type属性 a  表示小写英文字母编号  A 表示 大写英文字母编号 i 表示小写罗马数字编号 I表示大写罗马数字编号 1 表示数字编号
+ol标签的 start属性 必须为阿拉伯数字 必须是整数 指定了列表编号的起始值
+ol标签的reversed的属性不需要值  指定列表中的条目是否是倒序排列的
+
+li不能散着放  ul的字标签只能是li  li里面可以放任何东西
+无序列表的type属性 可以定义前导符号的样式   disc  默认值 空心圆  circle 空心圆 square 实心方块
+
+ul的子标签只能是li  绝对不能出现其他任何标签
+li标签内部可以放任何其他标签
+
+list-style:none 去掉列表的符号.
+
+
+
+图片 音频 与视频
+音频 <audio>标签
+
+    <audio src="音频地址">
+        您的浏览器不支持audio标签 请升级浏览器
+    </audio>
+音频  controls 属性 显示播放控件
+音频  autoplay属性 音频会自动播放
+音频  loop属性 会循环播放
+
+视频 <video> 标签
+视频  controls 属性 显示播放控件
+视频  autoplay属性 音频会自动播放
+视频  loop属性 会循环播放
+
+<img src="./01.jpeg" alt="景色">
+相对路径就是 从网页出发找到图片 绝对路径就是本地图片 ../表示上一级
+img是 images的缩写 src是source的缩写 
+alt属性 对图像的描述  使用alt的原因 1.由于某种原因无法加载图片 浏览器会显示alt属性中的文本 2.供视力不方便的朋友使用网页朗读器 也会朗读alt中的文本
+
+超链接 a标签对 target="_blank" 说明 要在新的网页窗口打开
+
+span 标签对 是文本中的“区块” 标签 没有啥特殊的显示效果 可以结合css添加不同的显示效果
+
+ <p>
+        <span>北京</span>的区号是<span>010</span>
+    </p>
+    <p>
+        <span>北京</span>的区号是<span>021</span>
+    </p>
+
+<b>标签  被加粗的文字
+<u>标签 加下划线的文字
+<i>标签 倾斜的文字
+
+<br>标签对是换行 <hr>标签对是下划线 
+ <p>
+            <b>小魏同学</b>
+            <br>
+            <u>小苟同学</u>
+            <hr>
+            <i>苟老师</i>
+            <hr>
+        </p>
+
+<strong> 代表特别重要的文字
+<em> 代表强调文字
+<mark> 代表一段需要被高亮的文字
+
+<figure> 代表一段独立的内容 与说明 <figcaption>配合使用
+
+HTML5众多区块标签
+section 标签对  文档的区域 语义比div大
+article 标签对 文档的核心文章内容 会被搜索引擎主要抓取
+aside 标签对  文档的非必要相关内容 比如广告等
+nav 导航条
+header 页头
+main  网页核心部分
+footer 页脚
+
+
+表格标签 table
+table  表格整体 可用于包裹多个tr       
+tr     表格每行 可用于包裹多个td
+td    表格单元格 可用于包裹多个表格内容
+<table>
+ <tr>
+            <td>姓名</td>
+            <td>成绩</td>
+            <td>评语</td>
+        </tr>
+        
+        <tr>
+            <td>小哥哥</td>
+            <td>100分</td>
+            <td>小哥哥真帅气</td>
+        </tr>
+</table>
+
+tabled 标签对的属性
+border  边框宽度
+width 表格宽度
+height  表格高度
+
+表格标题和表头单元格标签
+caption  表格大标题 表示表格整体大标题 默认在表格整体顶部居中位置显示
+th 表头单元格 表示一列小标题 通常用于表格第一行 默认内部文字加粗并居中显示
+ 
+表格的结构：thead  表格头部  tbody 表格主体  tfoot  表格底部   
+
+合并单元格 将水平或者垂直多个单元格合并为一个单元格
+合并单元格步骤：
+1.明确合并那几个单元格
+2。通过左上原则 确定保存谁删除谁
+    1.上下合并 只保留最上的 删除其他
+    1.左右合并 只保留最左的 删除其他
+3.给保留的单元格设置：跨行合并（rowspan） 或者跨列合并（colspan）
+!注意事项：只有同一个结构标签中的大单元格才可以合并 不能跨结构标签合并 （不能跨：thead tbody tfoot
+
+
+表单标签：
+input系列标签
+button按钮标签
+select下拉菜单标签
+textarea 文本域标签
+label标签
+
+input系列标签 type属性值：
+标签名  type属性   说明
+input    text       文本框 用于输入单行文本 常见属性:placeholder 占位符 提示用户输入内容的文本
+input    password    密码框 用于输入密码
+input   radio        单选框 用于多选一 name 分组 相同name属性值的单选框为一组 checked 默认选中
+input  checkbox     多选框 用于多选多   name 分组 相同name属性值的单选框为一组 checked 默认选中
+input   submit     提交按钮 用于提交
+input   reset      重置按钮 用于重置
+input   button    普通按钮 配置js添加功能
+ 
+表单 input种类
+color  颜色选择控件
+data time 日期时间选择控件
+email 电子邮件输入控件
+file 文件选择控件   多文件选择 属性为 multiple
+number 数字输入控件 限制最大和最小数 最小 min 最大 max
+range  拖拽条    限制最大和最小数 最小 min 最大 max
+search  搜索框
+url   网址输入控件
+submit  提交按钮 (value 里面写的是按钮上出现的文本)
+<input type="submit" value="提交表单">
+required 必填
+<input type="text" required>
+
+datalist 控件  可以为输入框提供一些备选项 当用户输入的内容与备选项文字相同时 将会显示智能感应
+<input type="text" list="lis">
+            <datalist id="lis">
+                <option value="米饭"></option>
+                <option value="面条"></option>
+                <option value="烤肠"></option>
+                <option value="麻辣烫"></option>
+                <option value="火锅"></option>
+                <option value="虾尾"></option>
+                <option value="烤鱼"></option>
+            </datalist>
+button按钮标签
+标签名    type属性值       说明
+button   submit      提交按钮
+button    reset      重置按钮
+button    button     普通按钮
+
+select下拉菜单标签  selected 为默认选中
+select标签 表示下拉菜单的整体
+option标签 表示下拉菜单的每一项

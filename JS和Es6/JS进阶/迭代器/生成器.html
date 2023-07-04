@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        // 生成器其实就是一个函数
+        // 异步编程   纯回调函数
+
+        // yield为函数代码的分隔符
+        function  * gen() {
+            console.log('hello');
+            yield '1'
+            console.log('hello1');
+            yield '2'
+            console.log('hello2');
+            yield '3'
+        }
+        let iterator = gen()
+        iterator.next()
+        iterator.next()
+        iterator.next()
+
+        // for (let o of gen()) {
+        //     console.log(o)
+        // }
+
+    </script>
+</body>
+
+</html>

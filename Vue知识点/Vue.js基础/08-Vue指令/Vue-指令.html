@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-text  内容渲染指令 {{}} v-html -->
+        <p v-text="username"></p>
+        <p>我今年{{age}}岁</p>
+        <p v-html="gender"></p>
+
+        <!-- v-bind 属性绑定指令 简写: -->
+        <input type="text" v-bind:placeholder="text">
+        <input type="text" :placeholder="text">
+
+
+        <p v-text="count"></p>
+        <!-- 事件绑定指令  v-on  简写@ -->
+        <button v-on:click="btn">点击</button>
+        <button @click="btn">点击</button>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+    <script>
+        const str = new Vue({
+            el:'#app',
+            data:{
+                username:'安鑫',
+                age:18,
+                gender:`<h1 style="color:red">男</h1>`,
+                text:'你好 Vue.js',
+                count:0,
+            },
+                methods:{
+                    btn(){
+                        this.count = this.count+1
+                    }
+                }
+            
+        })
+      
+    </script>
+    
+</body>
+</html>

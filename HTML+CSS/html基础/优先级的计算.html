@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* 行内 id 类 标签 */
+       /* (0 1 0 0) */
+         div #one{
+            color: orange;
+         }
+         /* (0,0,2,0) */
+         .father .son{
+            color: aquamarine;
+         }
+         /* (0 0 1 1 ) */
+         .father p{
+            color: blue;
+         }
+         /* (0 0 0 2) */
+         div p{
+            color: blueviolet;
+         }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 当一个标签使用了多个选择器 样式还冲突的时候 到底谁生效 -->
+    <div class="father">
+        <p class="son" id="one">我是一个标签</p>
+    </div>
+</body>
+
+</html>

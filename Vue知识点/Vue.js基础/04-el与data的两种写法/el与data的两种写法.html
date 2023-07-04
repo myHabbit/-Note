@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>你好 {{username}}</h2>
+    </div>
+
+    <script>
+
+        // el的两种写法
+        // const vm = new Vue({
+        //     // el:'#app',   //第一种写法  
+        //     data:{
+        //         username:'Vue'
+        //     }
+        // })
+        // console.log(vm)
+        // vm.$mount('#app') //第二种写法
+
+
+
+            const vm = new Vue({
+            // el:'#app',
+            // // data的第一种写法：对象式
+            // data:{
+            //     username:'安鑫'
+            // }
+
+            el:'#app',
+            // data的第二种写法：函数式
+           data:function(){
+            console.log('===',this)   //此处的this是Vue实例
+            return{
+                username:'安鑫'
+            }
+           }
+        })
+    </script>
+</body>
+
+</html>

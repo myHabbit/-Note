@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        // Object.keys()静态方法获取对象中的所有属性(键)
+
+        const o = {
+            uname: 'pink',
+            age: 18,
+            gender: '男'
+        }
+        // 获得所有属性名
+        console.log(Object.keys(o))    //返回数组
+        // 获得属性值
+        console.log(Object.values(o))    //返回数组
+
+
+        const a = {}
+        Object.assign(a, o)
+
+        // 将一个属性追加给一个对象
+        Object.assign(o,{wight:120})
+        console.log(o)
+
+
+    </script>
+</body>
+
+</html>

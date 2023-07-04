@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        姓: <input type="text" v-model:value="firstName"><br><br>
+        名: <input type="text" v-model:value="lastName"><br><br>
+        全名: <span>{{fullName}}</span>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                firstName:'张',
+                lastName:'三',
+            },
+            methods:{
+                demo(){
+                }
+            },
+            computed:{
+                fullName:{
+                    // get有什么作用？ 当有人读取fullName get就会被调用 切返回值就作为fullName的值
+                    // get什么时候调用： 1.初次读取fullName时。2.所依赖的数据发生变化时
+                    get(){
+                        // console.log('get被调用了')
+                        // console.log(this);   //此处的this是vm
+                        return this.firstName+'-'+this.lastName
+                    },
+                    set(value){
+                        // set 什么时候调用： 当fullName被修改时
+                        // console.log('set',value)
+                        // split 将字符串按照指定字符拆分 为一个数组
+                        const arr = value.split('-')
+                        console.log(arr)
+                        this.firstName = arr[0]
+                        this.lastName = arr[1],arr[2]
+
+                    }
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

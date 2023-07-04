@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        // 任何函数都可以被声明为一个async函数
+        // 因为要实现的就是异步功能(定时器 ajax请求)
+        // 可能是要将我们实现的功能封装到一个函数当中 ,为了更好的表示函数之中是异步 
+        //所以在函数的前面加上async
+        // 函数内部可以添加任意的一个语句来执行  但是其真正的目的是为了得到一个promise对象的状态以及结果值
+        // 1.如果返回值为非promise类型的数据
+        // return 3121    //就是一个成功的promise对象 值为3121
+        // 2.如果返回值为一个Promise对象
+        // 返回的这个promise实例化对象的状态以及结果将直接影响结果产生的promise实例化对象的状态和值
+        // 3.如果抛出异常
+        // throw "Oh NO"a
+
+
+
+        async function main() {
+
+
+
+            // return new Promise((resolve, reject) => {
+            //     // resolve('ok')   //返回的是成功的
+            //     // reject('error')   //返回的是失败的
+            // })
+        }
+        let result = main()
+        // console.log(result)
+        result.then((value) => {
+            console.log(value)
+        }, (reason) => {
+            console.log(reason)
+        })
+
+    </script>
+</body>
+
+</html>

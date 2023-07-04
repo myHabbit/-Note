@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符类  只选括号里的字符一个字符 
+        console.log(/^[abc]$/.test('a'))  //true
+        console.log(/^[abc]$/.test('b'))  //true
+        console.log(/^[abc]$/.test('c')) //true
+        console.log(/^[abc]$/.test('ab')) //false  有开头^结尾$的为精确匹配
+        console.log(/^[abc]{2}$/.test('ab')) //true 
+
+
+        console.log('-----------------')
+        console.log(/^[a-z]$/.test('p'))   //true  只要是a-z之间的字符都可以
+        console.log(/^[A-Z]$/.test('p'))   //false 只要是A-Z之间的字符都可以
+        console.log(/^[0-9]$/.test('1'))  //true 只要是1-9之间的数字之间的字符都可以
+        console.log(/^[a-zA-Z0-9]$/.test('1'))  //true 
+    </script>
+</body>
+</html>

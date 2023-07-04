@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>富有弹性的导航</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: 0;
+        }
+        body{
+            /* 设置body高度为100vh%的窗口高度 */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(200deg,#a8edea,#fed6e3);
+        }
+        .wrapper{
+            /* 设置宽度为60%窗口高度 */
+            width: 60vw;
+            height: 60px;
+            line-height: 60px;
+            background-color: #fff;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.25);
+            border-radius: 50px;
+        }
+        .wrapper nav{
+            display: flex;
+            /* 相对定位 */
+            position: relative;
+        }
+        .wrapper nav label{
+            flex: 1;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            /* 鼠标放上去变小手 */
+            cursor: pointer;
+        }
+        .wrapper nav label a{
+            text-decoration: none;
+            position: relative;
+            z-index: -1;
+            color: #333;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .wrapper nav input{
+            display: none;
+        }
+        .wrapper nav .tab{
+            position: absolute;
+            height: 100%;
+            width: 20%;
+            left: 0px;
+            bottom: 0px;
+            background:linear-gradientt(to,right,#f09819,#ff5858) ;
+            border-radius: 50px;
+        }
+        .wrapper nav #home:checked ~label.home a,
+        .wrapper nav #comment:checked ~label.comment a,
+        .wrapper nav #envelope:checked ~label.envelope a,
+        .wrapper nav #heard:checked ~label.heard a,
+        .wrapper nav #user:checked ~label.user a{
+            color: #fff;
+            transition: all 0.6s;
+        }
+            
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <input type="radio" name="tab" id="home" checked>
+            <input type="radio" name="tab" id="comment">
+            <input type="radio" name="tab" id="envelope">
+            <input type="radio" name="tab" id="heard">
+            <input type="radio" name="tab" id="user">
+            <label for="home" class="home">
+                <a href="#">
+                        Home
+                </a>
+            </label>
+            <label for="comment" class="home">
+                <a href="#">
+                    comment
+                </a>
+            </label>
+            <label for="envelope" class="home">
+                <a href="#">
+                    envelope
+                </a>
+            </label>
+            <label for="heard" class="home">
+                <a href="#">
+                    heard
+                </a>
+            </label>
+            <label for="user" class="home">
+                <a href="#">
+                    user
+                </a>
+            </label>
+            <div class="tab"></div>
+        </nav>
+    </div>
+
+
+    
+</body>
+</html>

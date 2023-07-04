@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../react基础库/unpkg.com_react@18.0.0_umd_react.development.js"></script>
+    <!-- 引入react-dom, 用于支持react操作DOM -->
+    <script type='text/javascript' src='../react基础库/unpkg.com_react-dom@18.0.0_umd_react-dom.development.js'></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type='text/javascript' src='../react基础库//unpkg.com_babel-standalone@6.26.0_babel.min.js'></script>
+    <title>渲染列表</title>
+
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script type="text/babel">
+        /* 
+            {}中 只能放js表达式 不能放if for 语句
+              在语句中是可以操作JSX的
+        */
+        const name = '孙悟空'
+        const lang = 'cn'
+
+
+
+
+        let div
+
+        if (lang == 'en') {
+            div = <div>Hello {name}</div>
+        } else if (lang === 'cn') {
+            div = <div>你好 {name}</div>
+
+        }
+
+
+
+        const data = ['孙悟空', '猪八戒', '沙和尚']
+
+        // const arr = []
+
+        // for (let i = 0; i < data.length; i++) {
+        //     arr.push(<li>{data[i]}</li>)
+        // }
+
+
+        // 将arr渲染为一个列表 网页中显示
+        // JSX中会自动将数组中的元素在网页中显示
+
+
+
+        const arr = data.map((item) => {
+            return <li>{item}</li>
+        })
+        const list = 
+            <ul>
+                {arr}
+            </ul>
+
+
+        const app = ReactDOM.createRoot(document.getElementById('root'))
+
+        app.render(list)
+
+    </script>
+</body>
+
+</html>

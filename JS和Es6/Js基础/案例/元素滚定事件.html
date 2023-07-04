@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            padding-left: 100px;
+        }
+
+        div {
+            display: none;
+            margin: 100px;
+            overflow: scroll;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+        我里面有很多文字
+    </div>
+
+
+
+    <script>
+        const div = document.querySelector('div')
+
+        // 页面滚动事件 scroll  给window和document 都可以添加scroll事件
+//         window.addEventListener('scroll',function(){
+//             // 执行操作
+//             // console.log('我滚了');
+//   })
+
+            // 页面滚动到某个地方 做某件事情   就可以使用scroll来检测
+    // const div = document.querySelector('div')
+    // div.addEventListener('scroll',function(){
+    //     // console.log(11);
+    //     // scrollTop  被卷去的头部
+    //    console.log(div.scrollTop)
+    // })
+
+    window.addEventListener('scroll',function(){
+        // 我想知道页面到底滚动了多少像素  scrollTop
+        // 获取html元素的写法   
+        // document.documentElement
+        // console.log(document.documentElement.scrollTop)
+        const n = document.documentElement.scrollTop
+        console.log(n);
+        if (n >= 100) {
+            div.style.display ='block'
+        }else{
+            div.style.display = 'none'
+        }
+
+    })
+    </script>
+</body>
+
+</html>

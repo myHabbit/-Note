@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../react基础库/unpkg.com_react@18.0.0_umd_react.development.js"></script>
+    <!-- 引入react-dom, 用于支持react操.作DOM -->
+    <script type='text/javascript' src='../react基础库/unpkg.com_react-dom@18.0.0_umd_react-dom.development.js'></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type='text/javascript' src='../react基础库//unpkg.com_babel-standalone@6.26.0_babel.min.js'></script>
+.
+    <title>三个API</title>
+</head>
+<div>
+
+</div>
+
+<body>
+
+    <Script>
+        /* 
+           React.createElement()创建一个react元素
+            参数：
+               1元素的名称(html标签必须小写)
+               2.标签中的属性
+                   设置事件时，属性名要修改为驼峰命名法
+                   设置class属性的时候 要使用className来设置
+                3.元素的内容(子元素)
+        */
+        const inp = React.createElement(
+            'button',
+            {
+                id: 'btn',
+                type: 'button',
+                className: 'btn',
+                onClick: () => {
+                    alert(123)
+                }
+            },
+            '点击'
+        )
+        React.creatElement('div', {}, button)
+
+        // 获取根元素
+        const app = ReactDOM.createRoot(document.querySelector('div'))
+
+        // 将元素在根元素显示
+        app.render(inp)
+    </Script>
+
+</body>
+
+</html>

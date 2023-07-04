@@ -1,0 +1,51 @@
+<template>
+  <ul>
+    <li v-bind:style="{ opacity }">欢迎学习Vue</li>
+    <li>news001 <input type="text" /></li>
+    <li>news002 <input type="text" /></li>
+    <li>news003 <input type="text" /></li>
+  </ul>
+</template>
+
+<script>
+export default {
+  name: "News",
+  data() {
+    return {
+      opacity: 1,
+    };
+  },
+  // mounted() {
+  //   this.timer = setInterval(() => {
+  //     console.log("@");
+  //     this.opacity = this.opacity - 0.01;
+  //     if (this.opacity <= 0) {
+  //       this.opacity = 1;
+  //     }
+  //   }, 16);
+  // },
+  // beforeDestroy() {
+  //   clearInterval(this.timer);
+  // },
+  
+  // 激活
+  activated() {
+    console.log("news被激活了");
+    this.timer = setInterval(() => {
+      console.log("@");
+      this.opacity = this.opacity - 0.01;
+      if (this.opacity <= 0) {
+        this.opacity = 1;
+      }
+    }, 16);
+  },
+  // 失活
+  deactivated() {
+    console.log("news被失活了");
+    clearInterval(this.timer);
+  },
+};
+</script>
+
+<style>
+</style>

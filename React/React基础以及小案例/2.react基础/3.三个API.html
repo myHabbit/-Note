@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../react基础库/unpkg.com_react@18.0.0_umd_react.development.js"></script>
+    <!-- 引入react-dom, 用于支持react操作DOM -->
+    <script type='text/javascript' src='../react基础库/unpkg.com_react-dom@18.0.0_umd_react-dom.development.js'></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type='text/javascript' src='../react基础库//unpkg.com_babel-standalone@6.26.0_babel.min.js'></script>
+
+    <title>三个API</title>
+</head>
+<div>
+
+</div>
+
+<body>
+
+    <Script>
+        const inp = React.createElement(
+            'button',
+            {
+                id: 'btn',
+                type: 'button',
+                className: 'btn',
+                onClick: () => {
+                    alert(123)
+                }
+            },
+            '点击'
+        )
+
+
+        // 获取根元素
+        const app = ReactDOM.createRoot(document.querySelector('div'))
+
+
+        /* 
+          app.render()
+                用来将react元素渲染到根元素当中
+                 根元素中所有的内容都会被删除
+                 当我们重复调用render()时 react会将两次的渲染结果进行比较 ，
+                   确保只修改那些发生变化的元素，对DOM做最少的修改
+        */
+        app.render(inp)
+    </Script>
+
+</body>
+
+</html>

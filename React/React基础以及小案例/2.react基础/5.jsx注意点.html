@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx</title>
+    <script type="text/javascript" src="../react基础库/unpkg.com_react@18.0.0_umd_react.development.js"></script>
+    <!-- 引入react-dom, 用于支持react操作DOM -->
+    <script type='text/javascript' src='../react基础库/unpkg.com_react-dom@18.0.0_umd_react-dom.development.js'></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type='text/javascript' src='../react基础库//unpkg.com_babel-standalone@6.26.0_babel.min.js'></script>
+
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script type="text/babel">
+        /* 
+                JSX注意事项
+                   1.JSX不是字符串  不要加引号
+                   2.JSX中 html标签应该小写 React组件应该大写开头
+                   3.JSX中有且只有一个根标签
+                   4.JSX的标签必须正确结束  (字节数标签必须写/ 比如 input)
+                   5. JSX中 可以使用{}嵌入表达式
+                   6.如果表达式是null,underfind 这些值就不会显示
+        */
+
+        const name = '孙悟空'
+        const fn = function () {
+            return 'hello'
+        }
+
+        const div = <div>我是一个div
+            <ul>
+                <li>111</li>
+            </ul>
+            <input type="text" />
+            <div>
+                {name}
+                {fn()}
+            </div>
+        </div>
+
+        const app = ReactDOM.createRoot(document.getElementById('root'))
+
+        app.render(div)
+
+    </script>
+</body>
+
+</html>

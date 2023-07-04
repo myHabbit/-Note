@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    
+    </style>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10" placeholder="请输入文本"></textarea>
+    <input type="submit">
+    <div>123</div>
+</body>
+
+<script>
+    const tx = document.querySelector('textarea')
+    const btn = document.querySelector('input')
+    const div = document.querySelector('div')
+    btn.addEventListener('click',function(){
+    const text =   tx.value.replace(/激情|基情/g,'**')
+    tx.value = ''
+        div.innerHTML = text
+        
+    })
+    
+</script>
+</html>

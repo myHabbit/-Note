@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.header{
+    height: 60px;
+    background-color: rgb(161, 160, 160);
+}
+.logo{
+    float: left;
+    margin-left: 100px;
+    line-height: 60px;
+    font-size: 15px;
+    color: aliceblue;
+}
+.nav{
+    box-shadow: 0px 1px 2px #666;
+
+}
+.logo span{
+    color: rgb(62, 145, 45);
+}
+.ullist{
+    margin-right: 50px;
+    float: right;
+}
+.libt{
+    float: left;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 60px;
+    
+}
+.libt a{
+    color: rgb(18, 18, 19);
+    /* 将链接改为块显示 */
+    display: block;
+}
+.libt a:hover{
+    background-color: #ccc;
+}
+.droplist{
+    background-color: aliceblue;
+    box-shadow: 0px 1px 2px #666;
+    /* 隐藏 */
+    display: none;
+}
+
+/* 显示 */
+.libt:hover .droplist {
+    display: block;
+}
+
+.droplist li{
+    border-top: 1px solid black;
+}
+.droplist li:nth-child(1){
+    border-top: 0;
+}
+.droplist li{
+    left: 0;
+    width: 100px;
+}
+.droplist li a{
+    font-size: 10px;
+    line-height: 40px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(/^哈$/.test('哈'))   //为true
+        console.log(/^哈*$/.test('哈'))   //为true
+        console.log(/^哈*$/.test('哈很'))   //为false  必须为哈开头 ha结尾
+        console.log(/^哈*$/.test('哈很哈'))   //为false  字符里面必须都是哈 不可以出现以外的任何字符
+
+        console.log('--------------------------')
+ 
+        // 量词+ 相当于>=1  不包括0
+        console.log(/^哈+$/.test('哈'))   //为true
+        console.log(/^哈+$/.test('哈'))   //为true
+        console.log(/^哈+$/.test(''))   //为false
+        console.log(/^哈+$/.test('哈很'))   //为false  必须为哈开头 ha结尾
+        console.log(/^哈+$/.test('哈很哈'))   //false
+        console.log('--------------------------')
+
+
+
+            // 量词? 相当于 0 或者 1 
+        console.log(/^哈?$/.test('哈'))   //为true
+        console.log(/^哈?$/.test('哈'))   //为true
+        console.log(/^哈?$/.test(''))   //为true
+        console.log(/^哈?$/.test('哈很'))   //为false  必须为哈开头 ha结尾
+        console.log(/^哈?$/.test('哈很哈'))   //false
+
+        console.log('--------------------------')
+        // 量词{n}  写几次就必须出现几次
+        console.log(/^哈{4}$/.test('哈'))
+        console.log(/^哈{4}$/.test('哈哈'))
+        console.log(/^哈{4}$/.test('哈哈'))
+        console.log(/^哈{4}$/.test('哈哈'))
+        console.log(/^哈{4}$/.test('哈哈哈'))
+        console.log(/^哈{4}$/.test('哈哈哈哈')) //只有这样未true
+        console.log(/^哈{4}$/.test('哈哈哈哈哈'))
+
+        console.log('--------------------------')
+        // 量词{n,}  意思是 >=n次
+        console.log(/^哈{4,}$/.test('哈'))
+        console.log(/^哈{4,}$/.test('哈哈'))
+        console.log(/^哈{4,}$/.test('哈哈'))
+        console.log(/^哈{4,}$/.test('哈哈'))
+        console.log(/^哈{4,}$/.test('哈哈哈'))
+        console.log(/^哈{4,}$/.test('哈哈哈哈')) 
+        console.log(/^哈{4,}$/.test('哈哈哈哈哈'))
+        console.log(/^哈{4,}$/.test('哈哈哈哈哈哈'))
+
+
+        console.log('--------------------------')
+        // 量词{n,m}  意思是 >=n <=m次 逗号左右两边千万不能有空格
+        console.log(/^哈{4,6}$/.test('哈'))
+        console.log(/^哈{4,6}$/.test('哈哈'))
+        console.log(/^哈{4,6}$/.test('哈哈'))
+        console.log(/^哈{4,6}$/.test('哈哈'))
+        console.log(/^哈{4,6}$/.test('哈哈哈'))
+        console.log(/^哈{4,6}$/.test('哈哈哈哈')) 
+        console.log(/^哈{4,6}$/.test('哈哈哈哈哈'))
+        console.log(/^哈{4,6}$/.test('哈哈哈哈哈哈'))
+
+    </script>
+</body>
+</html>

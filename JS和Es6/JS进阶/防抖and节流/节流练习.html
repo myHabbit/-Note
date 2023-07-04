@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+
+    <script type="text/javascript">
+
+        // 获取元素
+        const btn = document.getElementById('btn')
+        // 声明一个函数  说明要执行的动作
+        function getBtn() {
+            console.log(111)
+        }
+
+        // 声明一个函数
+        function getValue(fn, time) {
+            let timer = null
+            return function () {
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        // 调用函数
+                        fn()
+                        // 清空定时器
+                        timer = null
+                    }, 500)
+                }
+
+            }
+        }
+
+        // 调用函数并传递参数
+        btn.addEventListener('click', getValue(getBtn, 2000))
+    </script>
+</body>
+
+</html>

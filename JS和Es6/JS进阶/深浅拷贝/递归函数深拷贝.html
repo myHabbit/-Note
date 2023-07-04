@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const obj = {
+            uname: 'pink',
+            age: 18,
+            hobby: ['乒乓球', '足球'],
+            family: {
+                baby: '小pink'
+            }
+        }
+
+        const o = {}
+        // 拷贝函数
+        function deepCppy(newObj, oldObj) {
+            for (let k in oldObj) {
+                // 处理数组的问题
+                if (oldObj[k] instanceof Array) {
+                    newObj[k] = []
+                    deepCppy(newObj[k], oldObj[k])
+                } else if (oldObj[k] instanceof Object) {
+                    newObj[k] = {}
+                    deepCppy(newObj[k], oldObj[k])
+                }
+                else {
+                    //k是属性名   oldObj[k] 为属性值
+                    // newObj[k]  === o.uname     给新对象添加属性
+                    newObj[k] = oldObj[k]
+                }
+            }
+        }
+        deepCppy(o, obj)   //函数调用 两个参数 o是新对象
+        o.age = 20
+        o.hobby[0] = '篮球'
+        o.family.baby = '老pink'
+        console.log(o)
+        console.log(obj);
+
+    </script>
+</body>
+
+</html>

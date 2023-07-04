@@ -1,0 +1,27 @@
+.item {
+    display: flex;
+    width: 100%;
+    margin: 16px 0px;
+    background: #FCBF49;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    padding: 6px;
+    padding-right: 90px;
+
+    .content {
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+
+        .desc {
+            font-size: 16px;
+        }
+
+        .time {
+            margin-top: 10px;
+            color: #D62828;
+        }
+    }
+}
